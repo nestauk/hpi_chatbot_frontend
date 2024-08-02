@@ -108,7 +108,3 @@ if prompt := st.chat_input("Enter your query here..."):
 
         # Add assistant response to chat history
         st.session_state.messages.append({"role": "assistant", "content": response})
-
-    with st.chat_message("assistant"):
-        ai_message = st.write_stream(convo_starter_generator())
-        st.session_state.messages.append({"role": "assistant", "content": ai_message})
