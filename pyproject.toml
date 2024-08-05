@@ -11,6 +11,9 @@ package-mode = false
 python = ">=3.10, <3.13"
 streamlit = "^1.36.0"
 langserve = {extras = ["client"], version = "^0.2.2"}
+langfuse = "^2.40.0"
+streamlit-feedback = "^0.1.3"
+streamlit-extras = "^0.4.3"
 
 
 [build-system]
