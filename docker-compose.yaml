@@ -18,6 +18,8 @@ services:
       - .env
     ports:
       - 8501:8501
+    entrypoint:
+      ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0", "--client.toolbarMode=minimal", "--theme.base=light"]
 
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to
