@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');
+
+body {
+  font-family: 'Open Sans', open-sans;
+}
+
+.content {
+  background-color: rgba(245, 248, 247, 1);
+}
+
+.sampleTextStyle {
+  font-family: 'Open Sans';
+}
+.okIcon {
+  color: rgba(47, 181, 76, 1); 
+}
+
+.formgroup {
+  width: 400px;
+  background: white;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  padding: 10px;
+}
+
+.controlHolder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.txtControl,
+.selectControl {
+  width: 100%;
+  padding: 10px;
+  background: rgba(245, 248, 247, 1);
+  border-radius: 10px;
+  font-family: 'Open Sans';
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+  opacity: 1;
+  min-height: 40px;
+  height: 40px;
+  border: none;
+}
+
+.txtControl:disabled {
+  background-color: white;
+}
+
+.labelStyle {
+  width: 100px;
+  display: inline-block;
+  font-family: 'Open Sans';
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+  margin-left: 2px;
+}
+
+.required {
+  color: red;
+}
+
+.buttonHolder {
+  display: flex;
+  align-items: center;
+}
+.darkButton,
+.greenButton {
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 30px;
+  font-family: 'Poppins';
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+  opacity: 1;
+  cursor: pointer;
+}
+.darkButton {
+  background-color: rgba(20, 81, 100, 1);
+}
+.greenButton {
+  background-color: rgba(47, 181, 76, 1);
+}
+.iconButton {
+  cursor: pointer;
+  font-size: 24px;
+  color: gray;
+}
+.iconButton:hover {
+  color: rgba(47, 181, 76, 1);
+}
+
+.st-b8 {
+  font-family: 'Open Sans', open-sans;
+}
+
+.st-emotion-cache-1ch8vux:hover {
+  background-color: rgba(47, 181, 76, 1);
+  color: rgb(255, 255, 255);
+}
+
+.st-emotion-cache-uzeiqp {
+  font-family: 'Open Sans', open-sans;
+  margin-bottom: -1rem;
+}
+
+.st-c6 {
+  border-top-color: rgba(47, 181, 76, 1);
+  border-bottom-color: rgba(47, 181, 76, 1);
+  border-left-color: rgba(47, 181, 76, 1);
+  border-right-color: rgba(47, 181, 76, 1);
+}
+
+.st-c5 {
+  border-top-color: rgba(47, 181, 76, 1);
+  border-bottom-color: rgba(47, 181, 76, 1);
+  border-left-color: rgba(47, 181, 76, 1);
+  border-right-color: rgba(47, 181, 76, 1);
+}
+
+.st-c4 {
+  border-top-color: rgba(47, 181, 76, 1);
+  border-bottom-color: rgba(47, 181, 76, 1);
+  border-left-color: rgba(47, 181, 76, 1);
+  border-right-color: rgba(47, 181, 76, 1);
+}
+
+.st-c3 {
+  border-top-color: rgba(47, 181, 76, 1);
+  border-bottom-color: rgba(47, 181, 76, 1);
+  border-left-color: rgba(47, 181, 76, 1);
+  border-right-color: rgba(47, 181, 76, 1);
+}
+
+.st-c2 {
+  border-top-color: rgba(47, 181, 76, 1);
+  border-bottom-color: rgba(47, 181, 76, 1);
+  border-left-color: rgba(47, 181, 76, 1);
+  border-right-color: rgba(47, 181, 76, 1);
+}
+
+.st-c1 {
+  border-top-color: rgba(47, 181, 76, 1);
+  border-bottom-color: rgba(47, 181, 76, 1);
+  border-left-color: rgba(47, 181, 76, 1);
+  border-right-color: rgba(47, 181, 76, 1);
+}
+
+.st-emotion-cache-sy3z20 {
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  user-select: none;
+  font-family: "Material Symbols Rounded";
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
+
+.css-13n6kqv {
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  appearance: none;
+  font-family: 'Poppins';
+  font-weight: 500;
+  font-size: 0.8125rem;
+  line-height: 1.75;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+  min-width: 64px;
+  color: rgb(76, 175, 80);
+  outline: 0px;
+  border-width: 0px;
+  border-style: initial;
+  border-color: initial;
+  border-image: initial;
+  margin: 0px;
+  text-decoration: none;
+  padding: 4px 5px;
+  border-radius: 4px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
