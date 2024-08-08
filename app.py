@@ -16,11 +16,8 @@ import asyncio
 
 from functools import partial
 
-TITLE = "PumpPal (Beta) - Heatpump Installer Assistant"
 MODEL_NAME = os.environ.get("MODEL_NAME")
 TEMPERATURE = float(os.environ.get("TEMPERATURE"))
-
-st.set_page_config(page_title=TITLE)
 #st.title(TITLE)
 #st.subheader("Hey! Pleasure to meet you, I'm PumpPal your very own heat pump AI assistant. I'm currently in a Beta version, but I have information regarding installation manuals, a plumbing textbook and UK domestic heat pump best practice guidance.")
 
@@ -111,6 +108,9 @@ def to_sync_generator(async_gen: AsyncGenerator):
 
 ## Themed
 if "theme" in st.query_params:
+    TITLE = "Installer Pal (Beta) - Heatpump Installer Assistant"
+    st.set_page_config(page_title=TITLE)
+
     bot = "Renbee"
     themes_path = Path(__file__).parent / "themes"
     with open(themes_path / f'{st.query_params["theme"]}.css') as f:
@@ -185,7 +185,7 @@ if "theme" in st.query_params:
                 response = st.write_stream(
                     convo_starter_generator(
                         [
-                            "Hey! Pleasure to meet you, I'm PumpPal, your very own heat pump AI assistant. I'm currently in a Beta version, but I have information regarding installation manuals, a plumbing textbook and UK domestic heat pump best practice guidance. " + convo_starters[0]
+                            "Hey! Pleasure to meet you, I'm Installer Pal, your very own heat pump AI assistant. I'm currently in a Beta version, but I have information regarding installation manuals, a plumbing textbook and UK domestic heat pump best practice guidance. " + convo_starters[0]
                         ]
                     )
                 )
@@ -241,6 +241,8 @@ if "theme" in st.query_params:
 ## Default app
 else:
     bot = "assistant"
+    TITLE = "PumpPal (Beta) - Heatpump Installer Assistant"
+    st.set_page_config(page_title=TITLE)
 
     # Initialize chat history
     if "messages" not in st.session_state:
