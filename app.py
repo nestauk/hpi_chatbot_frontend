@@ -2,7 +2,7 @@ import os
 from time import sleep
 from random import choice
 from pathlib import Path
-from typing import AsyncGenerator, Generator, List
+from typing import AsyncGenerator, Generator, Any, Dict, List
 
 import streamlit as st
 from streamlit_feedback import streamlit_feedback
@@ -13,6 +13,8 @@ from langserve import RemoteRunnable
 from langfuse import Langfuse
 
 import asyncio
+
+import requests
 
 from functools import partial
 
@@ -106,6 +108,30 @@ def to_sync_generator(async_gen: AsyncGenerator):
     finally:
         loop.close()
 
+@st.fragment
+def run_evaluation(trace_id: str) -> Dict[str, Any]:
+    """Score a trace with RAGAS and log results to Langfuse.
+    This function POSTs a trace_id to the Installer Chatbot API /score endpoint to trigger evaluation with RAGAS.
+    The /score endpoint also sends evaluation results to Langfuse to the respective trace_id.
+    Finally, the endpoint returns a JSONResponse with the scores for the trace, or a respective error.
+    The response result can be used for future development or debugging purposes.
+    Note that Streamlit [does not recommend returning values from fragments](https://docs.streamlit.io/develop/concepts/architecture/fragments#fragment-return-values-and-interacting-with-the-rest-of-your-app).
+
+    Ideally, this function should be made asynchronous to avoid blocking the app execution flow.
+
+    Args:
+        trace_id (str): The trace ID to score.
+
+    Returns:
+        Dict[str, Any]: The scores for the trace or error.
+    """
+    response = requests.post(f"{os.environ.get('CHATBOT_URL')}/score?trace_id={trace_id}")
+
+    if response.status_code == 200:
+        return response.json()
+    else:
+        return {"error": response.text}
+
 ## Themed
 if "theme" in st.query_params:
     TITLE = "Installer Pal (Beta) - Heatpump Installer Assistant"
@@ -185,7 +211,7 @@ if "theme" in st.query_params:
                 response = st.write_stream(
                     convo_starter_generator(
                         [
-                            "Hey! Pleasure to meet you, I'm Installer Pal, your very own heat pump AI assistant. I'm currently in a Beta version, but I have information regarding installation manuals, a plumbing textbook and UK domestic heat pump best practice guidance. " + convo_starters[0]
+                            "Hey! Pleasure to meet you, I'm Installer Pal, your very own heat pump AI assistant. I'm currently in a beta version for testing only, but I have information regarding installation manuals (NIBE, Samsung, Daikin, Vaillant, and Ideal), the MCS installer standards, UK domestic heat pump best practice documents, plumbing textbooks covering scientific principles and systems related to heat pumps, as well as ENA guidance for connecting heat pumps to the electrical network. " + convo_starters[0]
                         ]
                     )
                 )
@@ -237,6 +263,9 @@ if "theme" in st.query_params:
                 optional_text_label="[Optional] Please provide an explanation",
                 key="feedback",
             )
+
+        #Run evaluation - this will cause a short delay for following messages
+        run_evaluation(st.session_state.run_id)
 
 ## Default app
 else:
@@ -292,6 +321,9 @@ else:
                 optional_text_label="[Optional] Please provide an explanation",
                 key="feedback",
             )
+
+        #Run evaluation - this will cause a short delay for following messages
+        run_evaluation(st.session_state.run_id)
 
 # add user feedback as a score
 if ("feedback" in st.session_state) and (st.session_state["feedback"] is not None):
