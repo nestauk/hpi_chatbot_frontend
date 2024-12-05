@@ -1,4 +1,4 @@
-# HPI Chatbot Frontend
+# Heat Pump Installer Chatbot Frontend
 
 The **HPI Chatbot Frontend** is a user-friendly interface for interacting with the [Heat Pump Installer Chatbot](https://github.com/nestauk/-asf_HP_installer_chatbot), built using **Streamlit** and containerised with **Docker** for seamless deployment and scalability.
 
@@ -38,7 +38,7 @@ To start the application using Docker Compose:
    ```bash
    docker-compose up --build
    ```
-2. Access the application in your browser at: http://localhost:8501
+2. Access the application in your browser at: `http://localhost:8501`
 
 
 ### Standalone Docker Command
@@ -52,7 +52,7 @@ To run the app without Docker Compose:
 
 ---
 
-## 🧪 Testing
+## 🧪 Testing and Development
 
 To test the app locally:
 
