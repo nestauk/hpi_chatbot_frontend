@@ -6,8 +6,8 @@
 
 # Want to help us make this template better? Share your feedback here: https://forms.gle/ybq9Krt8jtBL3iCk7
 
-ARG PYTHON_VERSION=3.10
-FROM python:${PYTHON_VERSION}-slim as base
+ARG PYTHON_VERSION=3.10.17
+FROM python:${PYTHON_VERSION}-slim AS base
 RUN apt-get update && apt-get install -y \
     build-essential \
     git
